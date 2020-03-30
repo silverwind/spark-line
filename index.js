@@ -22,7 +22,7 @@ function buildElement(tag, attrs) {
   return element;
 }
 
-module.exports = function sparkline(svg, entries, options) {
+module.exports = function sparkz(svg, entries, options) {
   removeChildren(svg);
 
   if (entries.length <= 1) {
@@ -81,7 +81,7 @@ module.exports = function sparkline(svg, entries, options) {
   const height = fullHeight - (strokeWidth * 2) - spotDiameter;
 
   // The maximum value. This is used to calculate the Y coord of
-  // each sparkline datapoint.
+  // each sparkz datapoint.
   // Make sure to force it to 0 if there is no maximum value
   let max = Math.max(...values);
   max = (isNaN(max) ? 0 : max);
@@ -121,7 +121,7 @@ module.exports = function sparkline(svg, entries, options) {
   });
 
   const path = buildElement("path", {
-    class: "sparkline--line",
+    class: "sparkz--line",
     d: pathCoords,
     fill: "none"
   });
@@ -129,7 +129,7 @@ module.exports = function sparkline(svg, entries, options) {
   const fillCoords = `${pathCoords} V ${fullHeight} L ${spotDiameter} ${fullHeight} Z`;
 
   const fill = buildElement("path", {
-    class: "sparkline--fill",
+    class: "sparkz--fill",
     d: fillCoords,
     stroke: "none"
   });
@@ -142,7 +142,7 @@ module.exports = function sparkline(svg, entries, options) {
   }
 
   const cursor = buildElement("line", {
-    class: "sparkline--cursor",
+    class: "sparkz--cursor",
     x1: offscreen,
     x2: offscreen,
     y1: 0,
@@ -151,7 +151,7 @@ module.exports = function sparkline(svg, entries, options) {
   });
 
   const spot = buildElement("circle", {
-    class: "sparkline--spot",
+    class: "sparkz--spot",
     cx: offscreen,
     cy: offscreen,
     r: spotRadius
@@ -164,7 +164,7 @@ module.exports = function sparkline(svg, entries, options) {
     width: svg.attributes.width.value,
     height: svg.attributes.height.value,
     style: "fill: transparent; stroke: transparent",
-    class: "sparkline--interaction-layer",
+    class: "sparkz--interaction-layer",
   });
   svg.appendChild(interactionLayer);
 
