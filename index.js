@@ -128,11 +128,15 @@ module.exports = function sparkz(svg, entries, options) {
 
   const fillCoords = `${pathCoords} V ${fullHeight} L ${spotDiameter} ${fullHeight} Z`;
 
-  const fill = buildElement("path", {
+  const fillAttrs = {
     class: "sparkz--fill",
     d: fillCoords,
     stroke: "none"
-  });
+  };
+
+  if (options.fill) fillAttrs.fill = options.fill;
+
+  const fill = buildElement("path", fillAttrs);
 
   svg.appendChild(fill);
   svg.appendChild(path);

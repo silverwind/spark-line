@@ -39,6 +39,12 @@ describe("sparkz", () => {
     snapshot(svg.outerHTML);
   });
 
+  it("renders svg with fill", () => {
+    const svg = createSVG(100, 30, 2);
+    sparkz(svg, [0, 0, 0, 0, 0], {fill: "red"});
+    snapshot(svg.outerHTML);
+  });
+
   it("renders svg for 1-item array", () => {
     const svg = createSVG(100, 30, 2);
     sparkz(svg, [5]);
