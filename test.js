@@ -1,9 +1,11 @@
-import assert from "assert";
-import snapshot from "snap-shot";
-import { JSDOM } from "jsdom";
-import {describe, it} from "mocha";
+"use strict";
 
-import sparkline from "../src/sparkline";
+const sparkline = require(".");
+const assert = require("assert");
+const snapshot = require("snap-shot-it");
+const {JSDOM} = require("jsdom");
+const {describe, it} = require("mocha");
+const {beforeEach} = global;
 
 function createSVG(width, height, strokeWidth) {
   const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");

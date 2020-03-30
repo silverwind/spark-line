@@ -1,3 +1,5 @@
+"use strict";
+
 function getY(max, height, diff, value) {
   return parseFloat((height - (value * height / max) + diff).toFixed(2));
 }
@@ -13,14 +15,14 @@ function defaultFetch(entry) {
 function buildElement(tag, attrs) {
   const element = document.createElementNS("http://www.w3.org/2000/svg", tag);
 
-  for (let name in attrs) {
-    element.setAttribute(name, attrs[name]);
+  for (const [name, value] of Object.entries(attrs)) {
+    element.setAttribute(name, value);
   }
 
   return element;
 }
 
-export function sparkline(svg, entries, options) {
+module.exports = function sparkline(svg, entries, options) {
   removeChildren(svg);
 
   if (entries.length <= 1) {
@@ -29,7 +31,7 @@ export function sparkline(svg, entries, options) {
 
   options = options || {};
 
-  if (typeof(entries[0]) === "number") {
+  if (typeof (entries[0]) === "number") {
     entries = entries.map(entry => {
       return {value: (isNaN(entry) ? 0 : entry)};
     });
@@ -110,9 +112,9 @@ export function sparkline(svg, entries, options) {
     y = (isNaN(y) ? height : y);
 
     datapoints.push(Object.assign({}, entries[index], {
-      index: index,
-      x: x,
-      y: y
+      index,
+      x,
+      y
     }));
 
     pathCoords += ` L ${x} ${y}`;
@@ -124,7 +126,7 @@ export function sparkline(svg, entries, options) {
     fill: "none"
   });
 
-  let fillCoords = `${pathCoords} V ${fullHeight} L ${spotDiameter} ${fullHeight} Z`;
+  const fillCoords = `${pathCoords} V ${fullHeight} L ${spotDiameter} ${fullHeight} Z`;
 
   const fill = buildElement("path", {
     class: "sparkline--fill",
@@ -188,7 +190,7 @@ export function sparkline(svg, entries, options) {
       nextDataPoint = datapoints[lastItemIndex];
     }
 
-    let previousDataPoint = datapoints[datapoints.indexOf(nextDataPoint) - 1];
+    const previousDataPoint = datapoints[datapoints.indexOf(nextDataPoint) - 1];
     let currentDataPoint;
     let halfway;
 
@@ -212,6 +214,4 @@ export function sparkline(svg, entries, options) {
       onmousemove(event, currentDataPoint);
     }
   });
-}
-
-export default sparkline;
+};
