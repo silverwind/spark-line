@@ -1,30 +1,16 @@
-# sparkline
+# sparkline [![](https://img.shields.io/npm/v/spark-line.svg)](https://www.npmjs.com/package/spark-line)
+> Generate SVG sparklines
 
-[![NPM package version](https://img.shields.io/npm/v/@fnando/sparkline.svg)](https://www.npmjs.com/package/@fnando/sparkline)
-![License: MIT](https://img.shields.io/npm/l/@fnando/sparkline.svg)
-![Minified size](http://img.badgesize.io/fnando/sparkline/master/dist/sparkline.min.js.svg?label=min+size)
-![Minified+Gzip size](http://img.badgesize.io/fnando/sparkline/master/dist/sparkline.min.js.svg?compression=gzip&label=min%2Bgzip+size)
-
-Generate SVG sparklines with JavaScript without any external dependency.
-
-## Instalation
-
-This lib is available as a NPM package. To install it, use the following command:
-
+## Install
 ```
-npm install @fnando/sparkline --save
+npm i spark-line
 ```
 
-If you're using Yarn (and you should):
-
+```js
+import sparkLine from "spark-line";
 ```
-yarn add @fnando/sparkline
-```
-
-You'll have to call `sparkline.sparkline(svg, values, options)` directly if you're loading the script without compiling your script (e.g. [webpack](https://webpack.js.org/)). Otherwise you can simply `import sparkline from "@fnando/sparkline";`.
 
 ## API
-
 ### `sparkline(svg, values, options = {})`
 
 - `svg`: This is a `<svg>` reference that must contain three required attributes (`width`, `height`, and `stroke-width`). These attributes are used to calculate the drawing area.
@@ -38,7 +24,6 @@ You'll have to call `sparkline.sparkline(svg, values, options)` directly if you'
     - `interactive`: When `true`, this enables the interactive mode. You don't have to set this option if you're providing a `onmousemove` callback.
 
 ## Usage
-
 This is the minimum working example:
 
 ```html
@@ -102,23 +87,5 @@ Available at https://codepen.io/fnando/full/GOQLVE/
 
 ## License
 
-(The MIT License)
-
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-'Software'), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+Copyright (c) silverwind
+Copyright (c) 2018 Nando Vieira
