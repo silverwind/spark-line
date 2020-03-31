@@ -1,6 +1,6 @@
 {
   "name": "sparkz",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "Generate SVG sparklines",
   "license": "BSD-2-Clause",
   "repository": "https://github.com/silverwind/sparkz",
