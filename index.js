@@ -88,7 +88,7 @@ module.exports = function sparkz(svg, entries, options) {
 
   // Some arbitrary value to remove the cursor and spot out of
   // the viewing canvas.
-  const offscreen = -1000;
+  const offscreen = -100000;
 
   // Cache the last item index.
   const lastItemIndex = values.length - 1;
