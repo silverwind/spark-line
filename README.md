@@ -22,7 +22,7 @@ import sparkz from "sparkz";
     - `spotRadius`: Set the spot radius. The default is `2`.
     - `cursorWidth`: Set the cursor width. The default is `2`.
     - `interactive`: When `true`, this enables the interactive mode. You don't have to set this option if you're providing a `onmousemove` callback.
-    - `fill`: Value to use for the `fill` attribute on the `<path>` area and cursor dot `circle`.
+    - `fill`: Value to use for the `fill` attribute on the `<path>` area and spot `circle`.
 
 ## Usage
 This is the minimum working example:

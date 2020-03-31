@@ -144,24 +144,24 @@ module.exports = function sparkz(svg, entries, options) {
     return;
   }
 
-  const cursorAttrs =  {
+  const cursor = buildElement("line", {
     class: "sparkz--cursor",
     x1: offscreen,
     x2: offscreen,
     y1: 0,
     y2: fullHeight,
     "stroke-width": cursorWidth
-  };
-  if (options.fill) cursorAttrs.fill = options.fill;
+  });
 
-  const cursor = buildElement("line", cursorAttrs);
-
-  const spot = buildElement("circle", {
+  const spotAttrs = {
     class: "sparkz--spot",
     cx: offscreen,
     cy: offscreen,
     r: spotRadius
-  });
+  };
+  if (options.fill) spotAttrs.fill = options.fill;
+
+  const spot = buildElement("circle", spotAttrs);
 
   svg.appendChild(cursor);
   svg.appendChild(spot);
