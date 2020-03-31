@@ -133,7 +133,6 @@ module.exports = function sparkz(svg, entries, options) {
     d: fillCoords,
     stroke: "none"
   };
-
   if (options.fill) fillAttrs.fill = options.fill;
 
   const fill = buildElement("path", fillAttrs);
@@ -145,14 +144,17 @@ module.exports = function sparkz(svg, entries, options) {
     return;
   }
 
-  const cursor = buildElement("line", {
+  const cursorAttrs =  {
     class: "sparkz--cursor",
     x1: offscreen,
     x2: offscreen,
     y1: 0,
     y2: fullHeight,
     "stroke-width": cursorWidth
-  });
+  };
+  if (options.fill) cursorAttrs.fill = options.fill;
+
+  const cursor = buildElement("line", cursorAttrs);
 
   const spot = buildElement("circle", {
     class: "sparkz--spot",
